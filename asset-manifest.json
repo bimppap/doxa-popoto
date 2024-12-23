@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6cbc1b14.css",
+    "main.js": "/static/js/main.68a671be.js",
+    "static/media/popo.png": "/static/media/popo.4571fdf6020c715df596.png",
+    "static/media/popoto.png": "/static/media/popoto.feebca7b9e13ff48ebfd.png",
+    "index.html": "/index.html",
+    "main.6cbc1b14.css.map": "/static/css/main.6cbc1b14.css.map",
+    "main.68a671be.js.map": "/static/js/main.68a671be.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6cbc1b14.css",
+    "static/js/main.68a671be.js"
+  ]
+}
