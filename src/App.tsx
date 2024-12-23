@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import html2canvas from "html2canvas";
+import { useRef, useState } from "react";
 
 const App = () => {
   const [selectedCount, setSelectedCount] = useState<number | null>(null);
   const [results, setResults] = useState<number[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
+
 
   const drawLottery = (count: number) => {
     const probabilities = [20, 25, 25, 25, 5];
@@ -29,11 +32,24 @@ const App = () => {
     drawLottery(count);
   };
 
+  const saveAsImage = async () => {
+    if (containerRef.current) {
+      const canvas = await html2canvas(containerRef.current);
+      const link = document.createElement("a");
+      link.download = "lottery-result.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    }
+  };
+
   const totalCertificates = results.reduce((sum, val) => sum + val, 0);
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="flex flex-col items-center justify-center">
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
+      <div
+        ref={containerRef}
+        className="flex flex-col items-center justify-center border-4 border-gray-300 p-4 bg-white rounded-lg"
+      >
         {/* Header Image */}
         <img
           src={require('./src_assets/popo.png')}
@@ -98,6 +114,15 @@ const App = () => {
           </p>
         )}
       </div>
+
+      {results.length > 0 && (
+        <button
+          onClick={saveAsImage}
+          className="mt-4 px-6 py-2 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-600"
+        >
+          결과 저장하기
+        </button>
+      )}
     </div>
   );
 };

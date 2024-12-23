@@ -12,6 +12,7 @@
     "@types/react-dom": "^18.3.5",
     "autoprefixer": "^10.4.20",
     "cra-template-typescript": "1.2.0",
+    "html2canvas": "^1.4.1",
     "postcss": "^8.4.49",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
